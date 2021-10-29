@@ -23,7 +23,7 @@ Este proyecto es una continuacion del proyecto del desarrollado en ciclo 3 de Mi
 - Juan Ardila
 - Julio Diaz Triviño
 
-> Para ver la documentacion del proyecto en Azure DevOps dar clic [aquí](https://dev.azure.com/edhernandez65/CHATAS%20-%20DISTRIBUIDORES%20CARNICOS%20-%20CICLO%204) 
+>> Para ver la documentacion del proyecto en Azure DevOps dar clic [aquí](https://dev.azure.com/edhernandez65/CHATAS%20-%20DISTRIBUIDORES%20CARNICOS%20-%20CICLO%204) 
 
 
 

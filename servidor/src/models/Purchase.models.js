@@ -8,6 +8,7 @@ const PurchaseSchema = new Schema({
     id_product: {type: String, required: [true, "Se necesita un producto para la compra"]},
     quantity: {type: Number, required: [true, "Seleccione una cantidad"] },
     total_price: {type: Number, required: true},
+    date: {type: Date , default: Date.now},
     status: {type:String, default:'Activo'},
 })
 

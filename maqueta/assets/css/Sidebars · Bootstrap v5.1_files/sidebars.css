@@ -69,6 +69,10 @@ main {
   transform: rotate(90deg);
 }
 
+.logo{
+  max-width: 5rem !important;
+}
+
 .btn-toggle-nav a {
   display: inline-flex;
   padding: .1875rem .5rem;

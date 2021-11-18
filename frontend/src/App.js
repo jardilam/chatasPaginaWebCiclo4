@@ -1,7 +1,7 @@
-import './App.css';
-import Navigation from './components/Navigation';
-import Carrusel from './components/Carrusel';
-import ShoppingCart from './components/ShoppingCart';
+import "./App.css";
+import Navigation from "./components/Navigation";
+import Carrusel from "./components/Carrusel";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   return (

@@ -4,10 +4,7 @@ import {
   Nav,
   NavDropdown,
   Container,
-  Offcanvas,
-  Form,
-  Button,
-  FormControl
+  Offcanvas
 } from "react-bootstrap";
 
 export default function Navigation() {
@@ -17,7 +14,9 @@ export default function Navigation() {
       <Navbar bg="dark" variant="dark" expand={false}>
         <Container fluid>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
-          <Navbar.Brand href="#"><i className="fas fa-drumstick-bite"></i> Productos</Navbar.Brand>
+          <Navbar.Brand href="#">
+            <i className="fas fa-drumstick-bite"></i> Productos
+          </Navbar.Brand>
           <Navbar.Offcanvas
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
@@ -32,22 +31,19 @@ export default function Navigation() {
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="#action1">Inicio</Nav.Link>
                 <NavDropdown title="Productos" id="offcanvasNavbarDropdown">
-                  <NavDropdown.Item href="#action2"><i class="fas fa-hamburger"></i> Res </NavDropdown.Item>
-                  <NavDropdown.Item href="#action3"><i class="fas fa-bacon"></i> Cerdo </NavDropdown.Item>
-                  <NavDropdown.Item href="#action4"><i className="fas fa-drumstick-bite"></i>  Pollo </NavDropdown.Item>
+                  <NavDropdown.Item href="#action2">
+                    <i class="fas fa-hamburger"></i> Res{" "}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action3">
+                    <i class="fas fa-bacon"></i> Cerdo{" "}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">
+                    <i className="fas fa-drumstick-bite"></i> Pollo{" "}
+                  </NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link href="#action5">Noticias</Nav.Link>
                 <Nav.Link href="#action6">Contactenos</Nav.Link>
               </Nav>
-              <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-              </Form>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

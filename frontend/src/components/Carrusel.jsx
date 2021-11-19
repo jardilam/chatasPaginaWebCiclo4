@@ -1,11 +1,10 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import {Carousel} from "react-bootstrap";
 
 
 export default function Carrusel() {
   return (
-    <div className="container" style={{padding: "20px 70px 20px"}}>
+    <div className="container table-responsive" style={{padding: "20px 70px 20px"}}>
       {/* Inicio Carrusel */}
       <Carousel fade>
         <Carousel.Item>

@@ -5,7 +5,7 @@ import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   return (
-    <div>
+    <div className="Body">
       <Navigation />
       <Carrusel />
       <ShoppingCart />

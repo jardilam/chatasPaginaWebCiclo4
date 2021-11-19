@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 const CartItem = ({ data, delFromCart }) => {
   let { id, name, price, quantity } = data;
   return (
-    <div style={{ borderBottom: "thin solid gray" }}>
+    <div className="CrtItem" style={{ borderBottom: "thin solid gray" }}>
       <h4>{name}</h4>
       <h5>
         ${price}.00 x {quantity} = ${price * quantity}.00

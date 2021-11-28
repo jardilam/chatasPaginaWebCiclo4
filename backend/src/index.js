@@ -12,21 +12,17 @@ require('./database')
 
 
 app.use(morgan('dev'))
-
-
 app.use(express.json()); 
 //application/x-www-form-urlencoded 
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({ origen: '*' }))
+
 
 app.use('/users', require('./routes/User.route'))
 /* app.use('/products', require('./routes/Product.route'))
 app.use('/news', require('./routes/New.route'))
 app.use('/shopping', require('./routes/Purchase.route'))
  */
-
-
-
 
 //Puerto
 

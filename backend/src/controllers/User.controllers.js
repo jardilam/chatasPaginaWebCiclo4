@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 UserController.register = async(req, res) => {
 
-    const { name, surname, email, password, birthdate} = req.body
+    const { name, surname, email, password, birthdate, role} = req.body
 
     const NewUser = new User({
         
@@ -13,7 +13,8 @@ UserController.register = async(req, res) => {
         surname,
         email,
         password,
-        birthdate
+        birthdate,
+        role
 
     })
     const emailUser = await User.findOne({email: email})
@@ -29,7 +30,8 @@ UserController.register = async(req, res) => {
         res.json({
             message: 'Bienvenido',
             id: NewUser._id,
-            nombre: NewUser.name,
+            name: NewUser.name,
+            role,
             token
         })
     }
@@ -54,11 +56,12 @@ UserController.login = async(req,res) => {
     if(match){
 
         const token = jwt.sign({ _id: user._id }, 'Secreta')
-        res.json({
+        return res.json({
 
-            mensaje: 'Bienvenido',
+            message: 'Bienvenido',
             id: user._id,
-            nombre: user.name +" "+ user.surname,
+            name: user.name +" "+ user.surname,
+            rol: user.role,
             token
 
         })

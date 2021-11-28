@@ -1,17 +1,58 @@
-import React from 'react'
+import React from 'react';
 
-import Navbar from './components/Admin/Navbardmin'
-import Compras from './components/Admin/Comprasadmin'
-import Produtos from './components/Admin/Productosadmin'
-import Noticias from './components/Admin/Noticiasadmin'
-import Usuarios from './components/Admin/Usuariosadmin'
+import {BrowserRouter as Router,Route,Routes, Navigate} from 'react-router-dom'
 
+import Navbar from './components/Admin/Navbardmin';
+import Compras from './components/Admin/Comprasadmin';
+import Produtos from './components/Admin/Productosadmin';
+import Noticias from './components/Admin/Noticiasadmin';
+import Usuarios from './components/Admin/Usuariosadmin';
+
+
+
+const auth = () => {
+
+  const token = sessionStorage.getItem('token');
+
+  if (token) {
+    return true;
+  }
+  else{
+    return false;
+  }
+
+}
+
+const rol = () => {
+
+  const rol = sessionStorage.getItem('rol');
+  if (rol === 'ADMIN') {
+    return true;
+  }
+  else{
+    return false;
+  }
+
+}
+
+const validation = () => {
+
+  if (!auth && !rol) {
+    console.log([auth, rol]);
+    return <Navigate to = '/'/>
+
+  }
+
+
+}
 
 function Admin() {
-    return (
+  return (      
       <div>
+          <Routes>
+            <Route path = '/usuarios' component = {Usuarios}></Route>
+          </Routes>
         <Navbar></Navbar>
-        <Compras></Compras>
       </div>
     );
   }

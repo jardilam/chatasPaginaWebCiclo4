@@ -28,14 +28,13 @@ Auth.tokenVerify = (req, res, next) => {
 
     }
 
-    jwt.verify(token,'Secreta',(error,resultado)=>{
+    jwt.verify(token,'Secreta',(error,decoded)=>{
 
 
         if(error) return res.status(401).json({
 
             mensaje:'No estas autorizado'
         })
-
         next()
 
     })

@@ -1,6 +1,91 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
+import Axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 const Header = () => {
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
+    const [birthdate,setBirthdate] = useState('');
+    const [last_start_date,setLast_start_date] = useState('');
+
+    const login = async(e) => {
+
+        e.preventDefault();
+        const user = {email, password};
+        const response = await Axios.post('/users/login', user);
+        console.log(response);
+        const mensaje = response.data.message;
+        if(mensaje!=='Bienvenido')
+        {
+            Swal.fire({
+              
+            icon: 'error',
+            title: mensaje,
+            showConfirmButton: false,
+            timer: 1500
+              });
+        }
+        else{
+
+            const token = response.data.token;
+            const name = response.data.name;
+            const userId = response.data.id;
+            const rol = response.data.rol;
+            if (rol == 'ADMIN') {
+                window.location.href='/admin' ;   
+            }
+            else {
+                window.location.href='/';
+            }
+            sessionStorage.setItem('token', token);
+            sessionStorage.setItem('nombre', name);
+            sessionStorage.setItem('idusuario', userId);
+            sessionStorage.setItem('rol', rol);
+
+            Swal.fire({  
+                icon: 'success',
+                title: mensaje,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    } 
+
+    const register = async(e) =>{
+        e.preventDefault();
+        const user = {name, surname, email, password, birthdate, last_start_date};
+        const response = await Axios.post('/users/register', user);
+        console.log(response);
+        const mensaje = response.data.message;
+        if (mensaje !== 'Bienvenido') {
+            Swal.fire({
+              
+                icon: 'error',
+                title: mensaje,
+                showConfirmButton: false,
+                timer: 1500
+                  })
+        }else{
+            const token= response.data.token
+            const name= response.data.name
+            const userId=response.data.id
+            sessionStorage.setItem('token',token)
+            sessionStorage.setItem('nombre',name)
+            sessionStorage.setItem('idusuario',userId)
+            window.location.href='/'
+
+            Swal.fire({  
+                icon: 'success',
+                title: mensaje,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    }
+
     return (
         <Fragment>
             <nav
@@ -62,18 +147,26 @@ const Header = () => {
                     Registro
                     </div>
                     <div className="card-body">
-                    <form action="" method="post">
+                    <form onSubmit = {register}>
                         <div className="mb-3">
-                        <label for="nombre" className="form-label">Nombre Completo:</label>
-                        <input type="text" className="form-control" id="nombreForm"/>
+                        <label for="nombre" className="form-label">Nombres:</label>
+                        <input type="text" className="form-control" id="nombreForm" autofocus= 'true' required onChange = {(e) => setName(e.target.value)}/>
+                        </div>
+                        <div className="mb-3">
+                        <label for="apellido" className="form-label">Apellidos:</label>
+                        <input type="text" className="form-control" id="apellidoForm" autofocus= 'true' required onChange = {(e) => setSurname(e.target.value)}/>
+                        </div>
+                        <div className="mb-3">
+                        <label for="mail" className="form-label">Correo:</label>
+                        <input type="email" className="form-control" id="correoForm" autofocus= 'true' required onChange = {(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="mb-3">
                         <label for="contrasena" className="form-label">Contraseña:</label>
-                        <input type="password" className="form-control" id="constrasenaForm"/>
+                        <input type="password" className="form-control" id="constrasenaForm" required onChange = {(e) => setPassword(e.target.value)}/>
                         </div>
                         <div className="mb-3">
                         <label for="fecha" className="form-label">Fecha de naciemiento:</label>
-                        <input type="date" className="form-control" id="fechaForm"/>
+                        <input type="date" className="form-control" id="fechaForm" required onChange = {(e) => setBirthdate(e.target.value)}/>
                         </div>
                         <button type="submit" className="btn btn-secondary">Registrar</button>
                     </form>
@@ -94,14 +187,14 @@ const Header = () => {
                     Iniciar sesion
                     </div>
                     <div className="card-body">
-                    <form action="" method="post">
+                    <form onSubmit = {login}>
                         <div className="mb-3">
                         <label for="correo" className="form-label">Correo electronico:</label>
-                        <input type="email" className="form-control" id="correoForm"/>
+                        <input type="email" className="form-control" autofocus='true' required id="correoForm" onChange = {(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="mb-3">
                         <label for="contrasenaLogin" className="form-label">Contraseña:</label>
-                        <input type="password" className="form-control" id="constrasenaLoginForm"/>
+                        <input type="password" className="form-control" required id="constrasenaLoginForm" onChange = {(e)=>setPassword(e.target.value)}/>
                         </div>
                         <button type="submit" className="btn btn-secondary">Ingresar</button>
                     </form>

@@ -1,18 +1,57 @@
 import React from 'react';
+import {BrowserRouter as Router,Route,Routes, Navigate} from 'react-router-dom'
 
-import Header from './components/Header'
-import About from './components/About';
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import Admin from './Admin.jsx';
+import Index from './Index.jsx';
+
+
+const auth = () => {
+
+  const token = sessionStorage.getItem('token');
+
+  if (token) {
+    return true;
+  }
+  else{
+    return false;
+  }
+
+}
+
+const rol = () => {
+
+  const rol = sessionStorage.getItem('rol');
+  if (rol === 'ADMIN') {
+    console.log(rol);
+    return true;
+  }
+  else{
+    return false;
+  }
+
+}
+
+function ValidationRoute ({props}){
+
+  return auth() && rol() ? <Admin/>:<Navigate to = '/'/>
+
+}
+
 
 function App() {
   return (
-    <div>
-      <Header></Header>
-      <About></About>
-      <Contact></Contact>
-      <Footer></Footer>
-    </div>
+      <Router>
+        <Routes>
+          <Route path = '/admin' element = {
+            <ValidationRoute>
+              <Admin/>
+            </ValidationRoute>            
+          }>
+
+          </Route>
+          <Route path = '/' element = {<Index/>}></Route>
+        </Routes>  
+      </Router>
   );
 }
 

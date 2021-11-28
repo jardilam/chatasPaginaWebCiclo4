@@ -3,7 +3,7 @@ const { Router } = require('express');
 const router = Router();
 
 const UserController = require('../controllers/User.controllers');
-const Auth = require('../helpers/Auth');
+const Auth = require ('../helpers/Auth')
 
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);

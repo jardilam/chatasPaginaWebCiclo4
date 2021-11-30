@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import './sidebars.css'
-import {BrowserRouter as Router,Route,Navigate} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import User from './Usuariosadmin.jsx'
 import Product from './Productosadmin.jsx'
 import Purchase from './Comprasadmin.jsx'
 import News from './Noticiasadmin.jsx'
+
 
 
 const Navbardmin = () => {
@@ -31,7 +32,9 @@ const Navbardmin = () => {
     }
 
     return (
+        
         <>
+        <div className='fluid-container'>    
             <main>
                 <h1 class="visually-hidden">Sidebars examples</h1>
 
@@ -97,6 +100,7 @@ const Navbardmin = () => {
                     {seccion()}
                 </div>
             </main>
+        </div>
 
         </>
     )

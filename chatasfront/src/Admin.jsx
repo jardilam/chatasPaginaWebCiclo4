@@ -7,6 +7,7 @@ import Compras from './components/Admin/Comprasadmin';
 import Produtos from './components/Admin/Productosadmin';
 import Noticias from './components/Admin/Noticiasadmin';
 import Usuarios from './components/Admin/Usuariosadmin';
+import Actualizar from './components/Admin/Actualizar';
 
 
 
@@ -51,6 +52,7 @@ function Admin() {
       <div>
           <Routes>
             <Route path = '/usuarios' component = {Usuarios}></Route>
+            <Route path = '/actualizar' component = {Actualizar}></Route>
           </Routes>
         <Navbar></Navbar>
       </div>

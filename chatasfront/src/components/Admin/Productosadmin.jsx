@@ -1,9 +1,5 @@
 import React, { useState ,useEffect} from 'react'
-import Axios from 'axios';
-import Swal from 'sweetalert2';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
 import InsertEmoticonTwoToneIcon from '@mui/icons-material/InsertEmoticonTwoTone';
 
 const Productosadmin = () => {

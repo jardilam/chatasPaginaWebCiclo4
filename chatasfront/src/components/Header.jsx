@@ -120,10 +120,10 @@ const Header = () => {
                     <a className="nav-link" href="#noticias">Noticias</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#services">Quienes Somos</a>
+                    <a className="nav-link" href="#about">Quienes Somos</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#contacto">Quienes Somos</a>
+                    <a className="nav-link" href="#contacto">Contactanos</a>
                     </li>
                     
                     |
@@ -221,13 +221,15 @@ const Header = () => {
                 "
                 >
                 <div className="col-lg-8 align-self-end">
-                    <h1 className="text-white font-weight-bold">
+                    <h1 className="text-white font-weight-bold" id="portfolio">
                         <img src="./assets/img/chatas/fraseHeader.png" className="img-fluid" alt=""/>
                     </h1>
                     <hr className="divider" />
                 </div>
                 <div className="col-lg-8 align-self-baseline">
-                    <img src="./assets/img/chatas/comprarCarrito.png" className="img-fluid" alt=""/>
+                    <a href="/products">
+                        <img src="./assets/img/chatas/comprarCarrito.png" className="img-fluid" alt=""/>
+                    </a>                    
                 </div>
                 </div>
             </div>

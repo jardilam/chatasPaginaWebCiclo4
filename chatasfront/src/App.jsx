@@ -3,7 +3,7 @@ import {BrowserRouter as Router,Route,Routes, Navigate} from 'react-router-dom'
 
 import Admin from './Admin.jsx';
 import Index from './Index.jsx';
-
+import Productos from './components/Productos.jsx';
 
 
 const auth = () => {
@@ -51,6 +51,7 @@ function App() {
 
           </Route>
           <Route path = '/' element = {<Index/>}></Route>
+          <Route path ="/products" element={<Productos />}></Route>
         </Routes>  
       </Router>
   );

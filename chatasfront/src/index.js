@@ -4,6 +4,9 @@ import Axios from 'axios';
 
 import App from './App.jsx';
 
+import "./components/seccionProductos/src/index.css"
+import "bootstrap/dist/css/bootstrap.min.css"; {/* npm install bootstrap */}
+
 Axios.defaults.baseURL = 'http://localhost:4000';
 
 ReactDOM.render(

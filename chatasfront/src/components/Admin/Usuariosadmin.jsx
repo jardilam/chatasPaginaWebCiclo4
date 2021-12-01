@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 import Swal from 'sweetalert2';
-import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
 import InsertEmoticonTwoToneIcon from '@mui/icons-material/InsertEmoticonTwoTone';
 
 
@@ -63,6 +60,7 @@ export default function Usuariosadmin() {
                 showConfirmButton: false,
                 timer: 1500
             });
+            window.location.href='/admin'
         } else {
             Swal.fire({
                 icon: 'error',
@@ -218,7 +216,7 @@ export default function Usuariosadmin() {
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header bg-primary text-white">
-                            <h5 className='modal-title'>Editar Usuario</h5>
+                            <h5 className='modal-title'>Ingresar Usuario</h5>
                             <button className='close' data-dismiss='modal'>
                                 <span>&times;</span>
                             </button>
@@ -245,7 +243,7 @@ export default function Usuariosadmin() {
                                     <label for="fecha" className="form-label">Fecha de naciemiento:</label>
                                     <input type="date" className="form-control" id="fechaForm" required onChange={(e) => setBirthdate(e.target.value)} />
                                 </div>
-                                <button type="submit" className="btn btn-secondary">Actualizar</button>
+                                <button type="submit" className="btn btn-secondary">Registrar</button>
                             </form>
 
                         </div>

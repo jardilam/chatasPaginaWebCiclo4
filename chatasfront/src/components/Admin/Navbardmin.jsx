@@ -29,6 +29,9 @@ const Navbardmin = () => {
         else if (valor == 5){
             return (<News/>)
         }
+        else{
+            return (<User/>)
+        }
     }
 
     return (
@@ -39,7 +42,7 @@ const Navbardmin = () => {
                 <h1 class="visually-hidden">Sidebars examples</h1>
 
                 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
-                    <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                         <img src="./assets/img/chatas/chatas2.jpeg" class="img-fluid rounded logo" alt="chatas" />
                         &nbsp;&nbsp;&nbsp;
                         <span class="fs-4">Chata's </span>
@@ -47,7 +50,7 @@ const Navbardmin = () => {
                     <hr />
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link" aria-current="page" onClick={(e) => setValor(1)}>
+                            <a href="/" class="nav-link" aria-current="page" onClick={(e) => setValor(1)}>
                                 <i class="bi bi-house"></i> &nbsp;
                                 Home
                             </a>
